@@ -1,7 +1,25 @@
-create table product(
+create table user_tb(
+    id int auto_increment primary key,
+    username varchar not null unique,
+    password varchar not null, 
+    email varchar not null,
+    created_at Timestamp
+);
+
+create table product_tb(
     id int auto_increment primary key,
     name varchar not null unique,
     price int not null, 
     qty int not null,
-    createdAt Timestamp
+    created_at Timestamp
 );
+
+create table purchase_tb(
+    id int auto_increment primary key,
+    user_id int,
+    product_id int,
+    created_at Timestamp,
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES user_tb (id),
+    CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES product_tb (id)
+);
+
