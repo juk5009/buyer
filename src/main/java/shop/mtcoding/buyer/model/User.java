@@ -1,6 +1,6 @@
 package shop.mtcoding.buyer.model;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import lombok.Getter;
 import lombok.Setter;
