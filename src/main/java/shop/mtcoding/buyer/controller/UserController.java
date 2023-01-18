@@ -49,4 +49,10 @@ public class UserController {
         }
 
     }
+
+    @GetMapping("/logout")
+    public String logout() {
+        session.removeAttribute("principal");
+        return "redirect:/";
+    }
 }
