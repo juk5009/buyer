@@ -16,4 +16,5 @@ public interface PurchaseRepository {
     public int updateById(@Param("id") int id, @Param("userId") int userId, @Param("prodcutId") int productId);
 
     public int deleteById(int id);
+
 }
