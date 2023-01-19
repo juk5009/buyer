@@ -2,11 +2,8 @@
 
     <%@ include file="../layout/header.jsp" %>
 
-        <h1>상품 상세보기 페이지</h1>
+        <h1>상품상세 페이지</h1>
         <hr />
-
-
-
         <table border="1">
             <tr>
                 <th>번호</th>
@@ -15,22 +12,13 @@
                 <th>재고</th>
                 <th>등록일</th>
             </tr>
-
             <tr>
                 <td>${product.id}</td>
-                <td>${product.name}</a></td>
-                <td>${product.price}</td>
-                <td>${product.qty}</td>
-                <td>${product.createdAt}</td>
+                <td>${product.name}</td>
+                <td>${product.price}원</td>
+                <td>${product.qty}개</td>
+                <td>${product.createdAtToString}</td>
             </tr>
-
-
         </table>
-
-        <form action="/product/${product.id}/purchaseForm" method="get">
-
-            <input type="number" min="0" max="${product.qty}">
-            <button type="submit">구매</button>
-        </form>
 
         <%@ include file="../layout/footer.jsp" %>
