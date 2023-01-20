@@ -30,12 +30,11 @@ public class ProductController {
         Product product = productRepository.findById(id);
         if (product == null) {
             return "redirect:/notfound";
-        } else {
-            model.addAttribute("product", product);
-
-            return "product/detail";
-
         }
+        model.addAttribute("product", product);
+
+        return "product/detail";
+
     }
 
 }
