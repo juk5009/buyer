@@ -14,27 +14,27 @@ import shop.mtcoding.buyer.model.ProductRepository;
 @Controller
 public class ProductController {
 
-    @Autowired
+    @Autowired // DI
     private ProductRepository productRepository;
 
-    @GetMapping({ "/", "product" })
-    public String findAll(Model model) {
+    @GetMapping({ "/", "/product" })
+    public String home(Model model) {
         List<Product> productList = productRepository.findAll();
         model.addAttribute("productList", productList);
-
         return "product/list";
     }
 
+    // select * from product where price = 1000
+    // pk가 아니면 queryString으로 전송
     @GetMapping("/product/{id}")
-    public String findById(@PathVariable int id, Model model) {
+    public String detail(@PathVariable int id, Model model) {
         Product product = productRepository.findById(id);
         if (product == null) {
             return "redirect:/notfound";
+        } else {
+            model.addAttribute("product", product);
+            return "product/detail";
         }
-        model.addAttribute("product", product);
-
-        return "product/detail";
-
     }
 
 }
